@@ -1,1 +1,241 @@
 @import "tailwindcss";
+
+:root {
+	--bg-0: #06101f;
+	--bg-1: #0b1f36;
+	--surface: rgba(11, 25, 42, 0.72);
+	--surface-border: rgba(135, 170, 201, 0.2);
+	--text-main: #eff6ff;
+	--text-dim: #b8c8db;
+	--signal: #32d2ff;
+	--signal-warm: #ffbe5c;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	font-family: "Sora", "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+	color: var(--text-main);
+	background:
+		radial-gradient(circle at 14% 12%, rgba(50, 210, 255, 0.2), transparent 38%),
+		radial-gradient(circle at 86% 20%, rgba(255, 190, 92, 0.12), transparent 32%),
+		linear-gradient(160deg, var(--bg-0), var(--bg-1));
+}
+
+body::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	background-image:
+		linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+	background-size: 36px 36px;
+	mask-image: radial-gradient(circle at center, black 42%, transparent 92%);
+}
+
+#root {
+	width: 100%;
+}
+
+.landing {
+	width: min(1080px, calc(100% - 2rem));
+	margin: 0 auto;
+	padding: 2rem 0 4rem;
+}
+
+.section {
+	margin-top: 1.25rem;
+	padding: clamp(1.25rem, 2.4vw, 2rem);
+	border: 1px solid var(--surface-border);
+	border-radius: 1rem;
+	background: var(--surface);
+	backdrop-filter: blur(6px);
+}
+
+.hero {
+	margin-top: 0;
+}
+
+.eyebrow {
+	margin: 0;
+	font-size: 0.8rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--signal);
+	font-weight: 600;
+}
+
+h1,
+h2,
+h3,
+p {
+	margin: 0;
+}
+
+h1 {
+	margin-top: 0.75rem;
+	font-size: clamp(2rem, 5.4vw, 4rem);
+	line-height: 1.05;
+	max-width: 15ch;
+}
+
+h2 {
+	margin-top: 0.5rem;
+	font-size: clamp(1.35rem, 3.4vw, 2rem);
+}
+
+h3 {
+	font-size: 1.05rem;
+}
+
+.lead,
+.section p {
+	margin-top: 0.9rem;
+	color: var(--text-dim);
+	max-width: 62ch;
+	line-height: 1.6;
+}
+
+.cta-row {
+	margin-top: 1.25rem;
+	display: flex;
+	gap: 0.8rem;
+	flex-wrap: wrap;
+}
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0.7rem;
+	padding: 0.7rem 1rem;
+	font-weight: 600;
+	text-decoration: none;
+	border: 1px solid transparent;
+	transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.btn:hover {
+	transform: translateY(-1px);
+}
+
+.btn-primary {
+	background: linear-gradient(130deg, #13c6ff, #35ffd0);
+	color: #03213d;
+}
+
+.btn-ghost {
+	border-color: rgba(147, 180, 212, 0.42);
+	color: var(--text-main);
+}
+
+.btn-ghost:hover {
+	border-color: rgba(255, 190, 92, 0.65);
+}
+
+.hero-panel {
+	margin-top: 1.4rem;
+	border: 1px solid rgba(76, 124, 166, 0.45);
+	border-radius: 0.8rem;
+	padding: 0.9rem;
+	background: rgba(4, 12, 21, 0.7);
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.terminal-line {
+	font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+	font-size: 0.9rem;
+	color: #bcd2e7;
+}
+
+.terminal-line + .terminal-line {
+	margin-top: 0.35rem;
+}
+
+.terminal-line.dim {
+	color: #6a8ead;
+}
+
+.terminal-line.alert {
+	color: var(--signal-warm);
+}
+
+.section-head {
+	margin-bottom: 0.75rem;
+}
+
+.card-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0.8rem;
+}
+
+.card,
+.stack-item {
+	border: 1px solid rgba(134, 167, 199, 0.22);
+	border-radius: 0.85rem;
+	background: rgba(10, 21, 36, 0.64);
+	padding: 1rem;
+}
+
+.stack {
+	display: grid;
+	gap: 0.7rem;
+}
+
+.cta-block {
+	text-align: left;
+}
+
+.reveal {
+	opacity: 0;
+	transform: translateY(12px);
+	animation: rise-in 600ms ease forwards;
+}
+
+.reveal-delay-1 {
+	animation-delay: 90ms;
+}
+
+.reveal-delay-2 {
+	animation-delay: 170ms;
+}
+
+.reveal-delay-3 {
+	animation-delay: 250ms;
+}
+
+@keyframes rise-in {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (max-width: 760px) {
+	.landing {
+		width: min(100%, calc(100% - 1rem));
+		padding-top: 1rem;
+	}
+
+	.card-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.reveal {
+		opacity: 1;
+		transform: none;
+		animation: none;
+	}
+
+	.btn {
+		transition: none;
+	}
+}
