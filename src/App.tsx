@@ -1,3 +1,13 @@
+import {
+  FiActivity,
+  FiBookOpen,
+  FiDownload,
+  FiGitBranch,
+  FiLock,
+  FiPlayCircle,
+  FiTerminal,
+} from 'react-icons/fi'
+
 function App() {
   return (
     <main className="landing">
@@ -10,9 +20,11 @@ function App() {
         </p>
         <div className="cta-row">
           <a className="btn btn-primary" href="#get-bingo">
+            <FiDownload aria-hidden="true" />
             Get BinGo
           </a>
           <a className="btn btn-ghost" href="#features">
+            <FiActivity aria-hidden="true" />
             Explore Features
           </a>
         </div>
@@ -31,6 +43,7 @@ function App() {
         </div>
         <div className="card-grid">
           <article className="card">
+            <FiGitBranch className="card-icon" aria-hidden="true" />
             <h3>Track goroutine lifecycles</h3>
             <p>
               Follow creation, scheduling, blocking, and completion with a clear
@@ -38,6 +51,7 @@ function App() {
             </p>
           </article>
           <article className="card">
+            <FiLock className="card-icon" aria-hidden="true" />
             <h3>Inspect channels and mutexes</h3>
             <p>
               See send/receive contention, lock ownership, and waiting chains in
@@ -45,6 +59,7 @@ function App() {
             </p>
           </article>
           <article className="card">
+            <FiPlayCircle className="card-icon" aria-hidden="true" />
             <h3>Replay concurrent execution</h3>
             <p>
               Scrub through captured events frame by frame to pinpoint exactly
@@ -52,6 +67,7 @@ function App() {
             </p>
           </article>
           <article className="card">
+            <FiActivity className="card-icon" aria-hidden="true" />
             <h3>Catch deadlocks and leaks early</h3>
             <p>
               Surface hidden failure patterns that traditional debugger sessions
@@ -68,14 +84,17 @@ function App() {
         </div>
         <div className="stack">
           <div className="stack-item">
+            <FiTerminal className="stack-icon" aria-hidden="true" />
             <h3>Terminal UI for deep sessions</h3>
             <p>Run focused debugging sessions in a fast standalone interface.</p>
           </div>
           <div className="stack-item">
+            <FiBookOpen className="stack-icon" aria-hidden="true" />
             <h3>Editor integrations</h3>
             <p>Inspect traces inside VS Code or Vim without breaking flow.</p>
           </div>
           <div className="stack-item">
+            <FiGitBranch className="stack-icon" aria-hidden="true" />
             <h3>Modular, UI-agnostic core</h3>
             <p>
               Extend with new frontends and integrations using a clean runtime
@@ -93,10 +112,22 @@ function App() {
           understand and act on.
         </p>
         <div className="cta-row">
-          <a className="btn btn-primary" href="#">
+          <a
+            className="btn btn-primary"
+            href="https://github.com/bingosuite/bingo/releases/latest"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FiDownload aria-hidden="true" />
             Download
           </a>
-          <a className="btn btn-ghost" href="#">
+          <a
+            className="btn btn-ghost"
+            href="https://github.com/bingosuite/bingo/tree/main/docs"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FiBookOpen aria-hidden="true" />
             Read Documentation
           </a>
         </div>
