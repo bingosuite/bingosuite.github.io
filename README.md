@@ -1,1 +1,1 @@
-# BinGoSuite.github.io
+# bingosuite.github.io
