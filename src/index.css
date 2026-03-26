@@ -264,6 +264,23 @@ h3 {
 	color: #d2e4f6;
 }
 
+.footer-github {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	color: var(--text-main);
+	text-decoration: none;
+	padding: 0.35rem 0.6rem;
+	border: 1px solid rgba(147, 180, 212, 0.42);
+	border-radius: 999px;
+	transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.footer-github:hover {
+	border-color: rgba(255, 190, 92, 0.65);
+	transform: translateY(-1px);
+}
+
 .reveal {
 	opacity: 0;
 	transform: translateY(12px);

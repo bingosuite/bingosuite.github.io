@@ -3,6 +3,7 @@ import {
   FiBookOpen,
   FiDownload,
   FiGitBranch,
+  FiGithub,
   FiLock,
   FiPlayCircle,
   FiTerminal,
@@ -142,6 +143,16 @@ function App() {
         <p className="footer-love">
           Made with ❤️ and ☕ by the <a href="https://github.com/orgs/bingosuite/people" target="_blank" rel="noreferrer"><u>BinGoSuite Team</u></a>.
         </p>
+        <a
+          className="footer-github"
+          href="https://github.com/bingosuite/bingo"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="View BinGo repository on GitHub"
+        >
+          <FiGithub aria-hidden="true" />
+          GitHub Repository
+        </a>
       </footer>
     </main>
   )
