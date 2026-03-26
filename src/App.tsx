@@ -9,6 +9,8 @@ import {
 } from 'react-icons/fi'
 
 function App() {
+  const year = new Date().getFullYear()
+
   return (
     <main className="landing">
       <header className="hero section reveal">
@@ -132,6 +134,15 @@ function App() {
           </a>
         </div>
       </section>
+
+      <footer className="site-footer reveal reveal-delay-3" aria-label="Site footer">
+        <p>
+          Copyright © {year} BinGoSuite. All rights reserved.
+        </p>
+        <p className="footer-love">
+          Made with ❤️ and ☕ by the <a href="https://github.com/orgs/bingosuite/people" target="_blank" rel="noreferrer"><u>BinGoSuite Team</u></a>.
+        </p>
+      </footer>
     </main>
   )
 }
