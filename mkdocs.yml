@@ -1,0 +1,20 @@
+site_name: bingo
+site_url: https://bingosuite.github.io/docs/
+docs_dir: docs-src
+site_dir: dist/docs
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.top
+    - search.suggest
+    - content.code.copy
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
