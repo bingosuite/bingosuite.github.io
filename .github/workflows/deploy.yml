@@ -36,6 +36,11 @@ jobs:
         run: |
           mkdir -p docs-src
           cp -r bingo-src/docs/. docs-src/
+          # Rewrite repo-relative links (../AGENTS.md, ../pkg/x.go, etc.)
+          # into absolute GitHub URLs, since those files live outside docs/
+          # and were never checked out or published by MkDocs.
+          find docs-src -name '*.md' -print0 | xargs -0 sed -i -E \
+            's@\]\(\.\./([^)]+)\)@](https://github.com/bingosuite/bingo/blob/main/\1)@g'
 
       - name: Set up Python
         uses: actions/setup-python@v5
