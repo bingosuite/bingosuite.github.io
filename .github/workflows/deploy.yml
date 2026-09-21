@@ -36,6 +36,8 @@ jobs:
         run: |
           mkdir -p docs
           cp -r bingo-src/docs/. docs/
+          mkdir -p docs/assets
+          cp assets/logo.jpeg docs/assets/logo.jpeg
           find docs -name '*.md' -print0 | xargs -0 sed -i -E \
             's@\]\(\.\./([^)]+)\)@](https://github.com/bingosuite/bingo/blob/main/\1)@g'
 
