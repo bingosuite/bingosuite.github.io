@@ -1,20 +1,34 @@
-site_name: bingo
-site_url: https://bingosuite.github.io/docs/
-docs_dir: docs-src
-site_dir: dist/docs
+site_name: Bingo
+site_url: https://bingosuite.github.io/
+repo_url: https://github.com/bingosuite/bingo
+repo_name: bingosuite/bingo
+
+docs_dir: docs
+site_dir: site
+
 theme:
   name: material
-  features:
-    - navigation.tabs
-    - navigation.top
-    - search.suggest
-    - content.code.copy
   palette:
     - scheme: default
+      primary: indigo
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     - scheme: slate
+      primary: indigo
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.highlight

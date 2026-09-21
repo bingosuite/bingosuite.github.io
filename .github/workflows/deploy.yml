@@ -1,4 +1,4 @@
-name: Deploy site
+name: Deploy docs
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout landing page
+      - name: Checkout site config
         uses: actions/checkout@v4
 
       - name: Checkout bingo docs
@@ -34,12 +34,9 @@ jobs:
 
       - name: Stage docs content
         run: |
-          mkdir -p docs-src
-          cp -r bingo-src/docs/. docs-src/
-          # Rewrite repo-relative links (../AGENTS.md, ../pkg/x.go, etc.)
-          # into absolute GitHub URLs, since those files live outside docs/
-          # and were never checked out or published by MkDocs.
-          find docs-src -name '*.md' -print0 | xargs -0 sed -i -E \
+          mkdir -p docs
+          cp -r bingo-src/docs/. docs/
+          find docs -name '*.md' -print0 | xargs -0 sed -i -E \
             's@\]\(\.\./([^)]+)\)@](https://github.com/bingosuite/bingo/blob/main/\1)@g'
 
       - name: Set up Python
@@ -48,27 +45,15 @@ jobs:
           python-version: "3.x"
 
       - name: Install MkDocs
-        run: pip install mkdocs-material
+        run: pip install -r requirements.txt
 
       - name: Build docs
         run: mkdocs build --strict
 
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
-      - name: Install landing page deps
-        run: npm ci
-
-      - name: Build landing page
-        run: npm run build -- --outDir dist --emptyOutDir false
-
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: site
 
   deploy:
     needs: build
