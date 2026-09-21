@@ -6,6 +6,8 @@ repo_name: bingosuite/bingo
 docs_dir: docs
 site_dir: site
 
+copyright: Made with ❤️ by The BingoSuite Team
+
 theme:
   name: material
   favicon: assets/logo.jpeg
