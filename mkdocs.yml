@@ -1,4 +1,4 @@
-site_name: Bingo
+site_name: Bingo - Concurrency Debugging Tool
 site_url: https://bingosuite.github.io/
 repo_url: https://github.com/bingosuite/bingo
 repo_name: bingosuite/bingo
@@ -8,23 +8,37 @@ site_dir: site
 
 theme:
   name: material
+  favicon: assets/logo.jpeg
+  logo: assets/logo.jpeg
   palette:
     - scheme: default
       primary: indigo
+      accent: deep purple
       toggle:
-        icon: material/brightness-7
+        icon: material/weather-night
         name: Switch to dark mode
     - scheme: slate
       primary: indigo
+      accent: deep purple
       toggle:
-        icon: material/brightness-4
+        icon: material/weather-sunny
         name: Switch to light mode
+  font:
+    text: Inter
+    code: JetBrains Mono
   features:
-    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - navigation.footer
     - navigation.top
     - search.suggest
     - search.highlight
     - content.code.copy
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/bingosuite/bingo
 
 markdown_extensions:
   - admonition
@@ -32,3 +46,5 @@ markdown_extensions:
       permalink: true
   - pymdownx.superfences
   - pymdownx.highlight
+  - attr_list
+  - md_in_html
